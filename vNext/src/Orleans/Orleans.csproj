@@ -101,7 +101,7 @@
     </PropertyGroup>
     <Message Text="[OrleansDllBootstrapUsingCodeGen] - OutputPath: $(BootstrapOutputPath)" Importance="high" />
     <!-- Compile code generator -->
-    <MSBuild Projects="$(ProjectDir)..\ClientGenerator\BootstrapCodegen.proj" Properties="BootstrapOutputPath=$(BootstrapOutputPath);Bootstrap=true" Targets="Build" UnloadProjectsOnCompletion="true" UseResultsCache="false" BuildInParallel="true" />
+    <MSBuild Projects="$(ProjectDir)..\ClientGenerator\BootstrapCodegen.proj" Properties="BootstrapOutputPath=$(BootstrapOutputPath);Bootstrap=true" Targets="Build" UnloadProjectsOnCompletion="true" UseResultsCache="false" BuildInParallel="false" />
     <!-- Finally invoke code generator on the recently built Orleans.dll -->
     <Message Text="[OrleansDllBootstrapUsingCodeGen] - Building ClientGenerator finished" Importance="high" />
   </Target>
@@ -110,9 +110,9 @@
   <!-- Set path to ClientGenerator.exe -->
   <PropertyGroup>
     <!-- Visual Studio or MsBuild .sln build -->
-    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\</OrleansReferencesBase>
+    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\net462\</OrleansReferencesBase>
     <!-- TFS build -->
-    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\</OrleansReferencesBase>
+    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\net462\</OrleansReferencesBase>
   </PropertyGroup>
 
   <Import Project="$(ProjectDir)..\Orleans.SDK.targets" Condition="'$(Bootstrap)' != 'true'" />

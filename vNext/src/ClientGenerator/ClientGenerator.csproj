@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>net462;netcoreapp1.1</TargetFramework>
+    <TargetFrameworks>net462;netcoreapp1.1</TargetFrameworks>
+    <TargetFramework Condition=" '$(TargetFramework)' == '' and '$(ApplicationTargetFramework)' != '' ">$(ApplicationTargetFramework)</TargetFramework>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
     <OutputType>Exe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -28,12 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Runtime" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Orleans.PlatformServices\Orleans.PlatformServices.csproj" />
     <ProjectReference Include="..\Orleans\Orleans.csproj" />
     <ProjectReference Include="..\OrleansCodeGenerator\OrleansCodeGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+    <PackageReference Include="NETStandard.Library" Version="1.6.0" />
   </ItemGroup>
 </Project>
