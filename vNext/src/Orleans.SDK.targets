@@ -25,12 +25,12 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   <Choose>
     <When Condition="HasTrailingSlash('$(CodeGenToolExeDir)')">
       <PropertyGroup>
-        <CodeGenToolExe>$(CodeGenToolExeDir)ClientGenerator.exe</CodeGenToolExe>
+        <CodeGenToolExe>$(CodeGenToolExeDir)ClientGenerator.dll</CodeGenToolExe>
       </PropertyGroup>
     </When>
     <Otherwise>
       <PropertyGroup>
-        <CodeGenToolExe>$(CodeGenToolExeDir)\ClientGenerator.exe</CodeGenToolExe>
+        <CodeGenToolExe>$(CodeGenToolExeDir)\ClientGenerator.dll</CodeGenToolExe>
       </PropertyGroup>
     </Otherwise>
   </Choose>
@@ -64,7 +64,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     <Message Text="[OrleansCodeGeneration] - Code-gen args file=$(ArgsFile)"/>
     <WriteLinesToFile Overwrite="true" File="$(ArgsFile)" Lines="@(CodeGenArgs)"/>
     <Message Text="[OrleansCodeGeneration] - Precompiled assembly"/>
-    <Exec Command="&quot;$(CodeGenToolExe)&quot; &quot;@$(ArgsFile)&quot;" Outputs="$(CodeGenFilename)">
+    <Exec Command="dotnet &quot;$(CodeGenToolExe)&quot; &quot;@$(ArgsFile)&quot;" Outputs="$(CodeGenFilename)">
        <Output TaskParameter="Outputs" ItemName="Compile" />
        <Output TaskParameter="Outputs" ItemName="FileWrites" />
     </Exec>

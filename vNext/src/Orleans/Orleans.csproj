@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup Label="NuGet">
     <IsPackable>true</IsPackable>
     <PackageId>Microsoft.Orleans.Core</PackageId>
@@ -110,9 +110,9 @@
   <!-- Set path to ClientGenerator.exe -->
   <PropertyGroup>
     <!-- Visual Studio or MsBuild .sln build -->
-    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\net462\</OrleansReferencesBase>
+    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\netcoreapp1.1\</OrleansReferencesBase>
     <!-- TFS build -->
-    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\net462\</OrleansReferencesBase>
+    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\netcoreapp1.1\</OrleansReferencesBase>
   </PropertyGroup>
 
   <Import Project="$(ProjectDir)..\Orleans.SDK.targets" Condition="'$(Bootstrap)' != 'true'" />
