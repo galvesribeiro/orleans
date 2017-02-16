@@ -100,10 +100,9 @@ namespace Orleans.CodeGeneration
         {
             // Load input assembly 
             // special case Orleans.dll because there is a circular dependency.
-            var assemblyName = new AssemblyName(options.InputAssembly.FullName);
             var grainAssembly = (Path.GetFileName(options.InputAssembly.FullName) != "Orleans.dll")
                                     ? PlatformAssemblyLoader.LoadFromAssemblyPath(options.InputAssembly.FullName)
-                                    : Assembly.Load(assemblyName);
+                                    : typeof(IGrain).GetTypeInfo().Assembly;
 
             // Create directory for output file if it does not exist
             var outputFileDirectory = Path.GetDirectoryName(options.OutputFileName);
