@@ -22,12 +22,7 @@
 
   <ItemGroup>
     <Compile Include="..\Build\GlobalAssemblyInfo.cs" />
-    <Compile
-      Include="..\..\..\src\OrleansRuntime\**\*.cs"
-      Exclude="
-        ..\..\..\src\OrleansRuntime\Properties\*.cs;
-        ..\..\..\src\OrleansRuntime\obj\**\*.cs;
-        ..\..\..\src\OrleansRuntime\bin\**\*.cs" />
+    <Compile Include="..\..\..\src\OrleansRuntime\**\*.cs" Exclude="&#xD;&#xA;        ..\..\..\src\OrleansRuntime\Properties\*.cs;&#xD;&#xA;        ..\..\..\src\OrleansRuntime\obj\**\*.cs;&#xD;&#xA;        ..\..\..\src\OrleansRuntime\bin\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,9 +33,9 @@
   <!-- Set path to ClientGenerator.exe -->
   <PropertyGroup>
     <!-- Visual Studio or MsBuild .sln build -->
-    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\</OrleansReferencesBase>
+    <OrleansReferencesBase>$(ProjectDir)..\Bootstrap\netcoreapp1.1\</OrleansReferencesBase>
     <!-- TFS build -->
-    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\</OrleansReferencesBase>
+    <OrleansReferencesBase Condition="'$(builduri)' != ''">$(ArtifactDirectory)Bootstrap\netcoreapp1.1\</OrleansReferencesBase>
   </PropertyGroup>
 
   <Import Project="$(ProjectDir)..\Orleans.SDK.targets" />
