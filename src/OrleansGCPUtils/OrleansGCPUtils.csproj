@@ -51,6 +51,7 @@
     <Compile Include="Providers\Streams\PubSub\PubSubDataManager.cs" />
     <Compile Include="Providers\Streams\PubSub\PubSubStreamProvider.cs" />
     <Compile Include="Providers\Streams\PubSub\IPubSubDataAdapter.cs" />
+    <Compile Include="Storage\DatastoreDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
@@ -64,6 +65,9 @@
       <Project>{bc1bd60c-e7d8-4452-a21c-290aec8e2e74}</Project>
       <Name>Orleans</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Providers\Storage\Datastore\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

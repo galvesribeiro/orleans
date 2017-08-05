@@ -11,7 +11,9 @@ namespace Orleans.Providers.GCP
         PublishMessage = GoogleErrorCodeBase + 3,
         GetMessages = GoogleErrorCodeBase + 4,
         DeleteMessage = GoogleErrorCodeBase + 5,
-        AcknowledgeMessage = GoogleErrorCodeBase + 6
+        AcknowledgeMessage = GoogleErrorCodeBase + 6,
+        WriteDataStore = GoogleErrorCodeBase + 7,
+        ReadEntity = GoogleErrorCodeBase + 8
     }
 
     internal static class LoggerExtensions

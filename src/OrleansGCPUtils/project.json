@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Google.Cloud.Datastore.V1": "2.0.0",
     "Google.Cloud.PubSub.V1": "1.0.0-beta11"
   },
   "frameworks": {
